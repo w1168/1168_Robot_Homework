@@ -62,6 +62,6 @@ $$
 
 图片插入用html的写法(网站不知道能不能用)
 
-<img src="https://baike.so.com/gallery/list?ghid=first&pic_idx=1&eid=25739792&sid=26872294" width="200" height="200">
+<img src="congyu.jpg" width="200" height="200">
 
-<img src="https://baike.so.com/gallery/list?ghid=first&pic_idx=1&eid=25739792&sid=26872294" style="zoom: 0.5">
+<img src="congyu.jpg" style="zoom: 0.5">
