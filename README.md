@@ -60,7 +60,7 @@ $$
 - first
 - second
 
-图片插入用html的写法(网站不知道能不能用)
+图片插入用html的写法(丛雨酱可爱捏)
 
 <img src="congyu.jpg" width="200" height="200">
 
