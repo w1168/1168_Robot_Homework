@@ -34,9 +34,11 @@ i am  not code
     }
  ```
 公式段（要积累）
+
 $\beta \times x = \alpha$
 
 公式块
+
 $$
 \int_{1}^{2}{4\alpha^2}dx\text{（注释要text，比如我）}
 $$
