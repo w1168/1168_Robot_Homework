@@ -1,7 +1,7 @@
 //by 1168
 //软件241WWY
 #include<stdio.h>
-#include<stdlib.h>  //仅用来暂停
+//#include<stdlib.h>  //仅用来暂停
 
 int main()
 {
@@ -54,7 +54,7 @@ int main()
             
         }
     }
-    system("pause");
+    //system("pause");
     
     
     
@@ -66,4 +66,4 @@ int main()
     */
     
     return 0;
-}
+}//normal
