@@ -7,8 +7,7 @@
       "RelativeMoniker": "D:0:0:{6430CD7D-064C-4879-AE59-C6744B042BC5}|09_finalwork\\09_finalwork.vcxproj|solutionrelative:09_finalwork\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6430CD7D-064C-4879-AE59-C6744B042BC5}|09_finalwork\\09_finalwork.vcxproj|E:\\all project\\RobotWork\\1168_Robot_Homework\\09_finalwork\\09_finalwork\\mask_test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6430CD7D-064C-4879-AE59-C6744B042BC5}|09_finalwork\\09_finalwork.vcxproj|solutionrelative:09_finalwork\\mask_test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\VisualStudio IDE\\VC\\Tools\\MSVC\\14.41.34120\\include\\vector||{3B902123-F8A7-4915-9F01-361F908088D0}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,14 +22,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "mask_test.cpp",
-              "DocumentMoniker": "E:\\all project\\RobotWork\\1168_Robot_Homework\\09_finalwork\\09_finalwork\\mask_test.cpp",
-              "RelativeDocumentMoniker": "09_finalwork\\mask_test.cpp",
-              "ToolTip": "E:\\all project\\RobotWork\\1168_Robot_Homework\\09_finalwork\\09_finalwork\\mask_test.cpp",
-              "RelativeToolTip": "09_finalwork\\mask_test.cpp",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAACUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-17T11:28:42.335Z",
+              "Title": "vector",
+              "DocumentMoniker": "D:\\VisualStudio IDE\\VC\\Tools\\MSVC\\14.41.34120\\include\\vector",
+              "ToolTip": "D:\\VisualStudio IDE\\VC\\Tools\\MSVC\\14.41.34120\\include\\vector",
+              "ViewState": "AgIAAFAHAAAAAAAAAAAgwF8HAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-10-17T14:12:42.214Z",
               "EditorCaption": ""
             },
             {
@@ -41,9 +38,9 @@
               "RelativeDocumentMoniker": "09_finalwork\\main.cpp",
               "ToolTip": "E:\\all project\\RobotWork\\1168_Robot_Homework\\09_finalwork\\09_finalwork\\main.cpp",
               "RelativeToolTip": "09_finalwork\\main.cpp",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAACgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACsAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-17T11:26:33.482Z",
+              "WhenOpened": "2024-10-17T13:27:59.827Z",
               "EditorCaption": ""
             }
           ]
