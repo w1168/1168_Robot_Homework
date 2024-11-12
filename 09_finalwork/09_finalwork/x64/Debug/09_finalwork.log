@@ -1,19 +1,80 @@
 ﻿  main.cpp
-E:\all project\RobotWork\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(13,28): warning C4244: “参数”: 从“_Tp”转换到“float”，可能丢失数据
-E:\all project\RobotWork\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(13,28): warning C4244:         with
-E:\all project\RobotWork\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(13,28): warning C4244:         [
-E:\all project\RobotWork\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(13,28): warning C4244:             _Tp=int
-E:\all project\RobotWork\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(13,28): warning C4244:         ]
-E:\all project\RobotWork\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(13,61): warning C4244: “参数”: 从“_Tp”转换到“float”，可能丢失数据
-E:\all project\RobotWork\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(13,61): warning C4244:         with
-E:\all project\RobotWork\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(13,61): warning C4244:         [
-E:\all project\RobotWork\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(13,61): warning C4244:             _Tp=int
-E:\all project\RobotWork\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(13,61): warning C4244:         ]
-E:\all project\RobotWork\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(14,19): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
-E:\all project\RobotWork\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(23,19): warning C4804: “<”: 在操作中使用类型“bool”不安全
-E:\all project\RobotWork\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(24,19): warning C4804: “<”: 在操作中使用类型“bool”不安全
-E:\all project\RobotWork\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(26,10): warning C4804: “<”: 在操作中使用类型“bool”不安全
-E:\all project\RobotWork\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(92,12): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
-E:\all project\RobotWork\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(95,15): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-E:\all project\RobotWork\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(110,6): warning C4326: “main”的返回类型应为“int”而非“void”
-  09_finalwork.vcxproj -> E:\all project\RobotWork\1168_Robot_Homework\09_finalwork\x64\Debug\09_finalwork.exe
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(23,28): warning C4244: “参数”: 从“_Tp”转换到“float”，可能丢失数据
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(23,28): warning C4244:         with
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(23,28): warning C4244:         [
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(23,28): warning C4244:             _Tp=int
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(23,28): warning C4244:         ]
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(23,61): warning C4244: “参数”: 从“_Tp”转换到“float”，可能丢失数据
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(23,61): warning C4244:         with
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(23,61): warning C4244:         [
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(23,61): warning C4244:             _Tp=int
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(23,61): warning C4244:         ]
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(24,19): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(56,201): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(57,201): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(58,31): warning C4244: “=”: 从“_Tp”转换到“float”，可能丢失数据
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(58,31): warning C4244:         with
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(58,31): warning C4244:         [
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(58,31): warning C4244:             _Tp=int
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(58,31): warning C4244:         ]
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(59,31): warning C4244: “=”: 从“_Tp”转换到“float”，可能丢失数据
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(59,31): warning C4244:         with
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(59,31): warning C4244:         [
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(59,31): warning C4244:             _Tp=int
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(59,31): warning C4244:         ]
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(64,123): warning C4244: “参数”: 从“float”转换到“_Tp”，可能丢失数据
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(64,123): warning C4244:         with
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(64,123): warning C4244:         [
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(64,123): warning C4244:             _Tp=int
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(64,123): warning C4244:         ]
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(64,76): warning C4244: “参数”: 从“float”转换到“_Tp”，可能丢失数据
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(64,76): warning C4244:         with
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(64,76): warning C4244:         [
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(64,76): warning C4244:             _Tp=int
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(64,76): warning C4244:         ]
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(66,119): warning C4244: “参数”: 从“float”转换到“_Tp”，可能丢失数据
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(66,119): warning C4244:         with
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(66,119): warning C4244:         [
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(66,119): warning C4244:             _Tp=int
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(66,119): warning C4244:         ]
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(66,72): warning C4244: “参数”: 从“float”转换到“_Tp”，可能丢失数据
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(66,72): warning C4244:         with
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(66,72): warning C4244:         [
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(66,72): warning C4244:             _Tp=int
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(66,72): warning C4244:         ]
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(68,81): warning C4244: “参数”: 从“float”转换到“_Tp”，可能丢失数据
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(68,81): warning C4244:         with
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(68,81): warning C4244:         [
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(68,81): warning C4244:             _Tp=int
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(68,81): warning C4244:         ]
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(68,43): warning C4244: “参数”: 从“float”转换到“_Tp”，可能丢失数据
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(68,43): warning C4244:         with
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(68,43): warning C4244:         [
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(68,43): warning C4244:             _Tp=int
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(68,43): warning C4244:         ]
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(184,12): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(187,15): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(202,6): warning C4326: “main”的返回类型应为“int”而非“void”
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(228,10): warning C4244: “初始化”: 从“int64”转换到“int”，可能丢失数据
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(278,74): warning C4244: “=”: 从“double”转换到“_Ty”，可能丢失数据
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(278,74): warning C4244:         with
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(278,74): warning C4244:         [
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(278,74): warning C4244:             _Ty=float
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(278,74): warning C4244:         ]
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(282,18): warning C4244: “初始化”: 从“_Ty”转换到“int”，可能丢失数据
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(282,18): warning C4244:         with
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(282,18): warning C4244:         [
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(282,18): warning C4244:             _Ty=float
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(282,18): warning C4244:         ]
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(288,24): warning C4244: “=”: 从“_Ty”转换到“int”，可能丢失数据
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(288,24): warning C4244:         with
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(288,24): warning C4244:         [
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(288,24): warning C4244:             _Ty=float
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(288,24): warning C4244:         ]
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(314,10): warning C4244: “初始化”: 从“int64”转换到“int”，可能丢失数据
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(315,41): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(227,11): warning C4101: “t2”: 未引用的局部变量
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(227,7): warning C4101: “t1”: 未引用的局部变量
+D:\1allproject\1168_Robot_Homework\09_finalwork\09_finalwork\main.cpp(73,1): warning C4715: “predict::predictpoint”: 不是所有的控件路径都返回值
+  LINK : 没有找到 D:\1allproject\1168_Robot_Homework\09_finalwork\x64\Debug\09_finalwork.exe 或上一个增量链接没有生成它；正在执行完全链接
+  09_finalwork.vcxproj -> D:\1allproject\1168_Robot_Homework\09_finalwork\x64\Debug\09_finalwork.exe
