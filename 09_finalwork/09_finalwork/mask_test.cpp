@@ -14,7 +14,7 @@ void main()
 
 	Mat img;
 	
-	cap.set(CAP_PROP_POS_FRAMES, 450);				//设置要获取的帧号
+	cap.set(CAP_PROP_POS_FRAMES, 300);				//设置要获取的帧号
 	cap.read(img);								//read方法返回一个布尔值和一个视频帧。若帧读取成功，则返回True
 	
 	

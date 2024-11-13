@@ -10,12 +10,14 @@
 #include <opencv2/imgproc.hpp>
 #include <iostream>
 #include <cmath>
-//#include "kalman.cpp"
-
 using namespace cv;
 using namespace std;
 
-
+struct mainpoint
+{
+	Point mp;
+	RotatedRect rect1, rect2;
+};
 
 double getDistance(Point pointO, Point pointA)
 {
@@ -75,57 +77,54 @@ public:
 
 };
 
-
-struct mainpoint
+mainpoint Rectcompare(RotatedRect rect1, RotatedRect rect2,Mat img)    //灯条比对
 {
-	Point mp;
-	Rect rect1, rect2;
-};
+	/*
+	rect1.center : 矩形的中心点，类型为 cv::Point2f。
+	rect1.size : 矩形的大小（宽度和高度）,类型为 cv::Size2f(width,height)。
+	rect1.angle : 矩形的旋转角度，单位为度，逆时针,范围是[0, 360?)。
+	*/
 	
-
-
-
-mainpoint Rectcompare(Rect rect1,Rect rect2,Mat img)  
-{
 	int point = 8;
-	//加分  if中不能用连续比较符号
-	//if (rect2.tl().y < (rect1.tl().y + rect1.br().y) / 2 && (rect1.tl().y + rect1.br().y) / 2 < rect2.br().y) { point+=1; }//中点对齐检测
-	//cout << point << "/1  ";
-	//if (rect1.tl().y < (rect2.tl().y + rect2.br().y) / 2 && (rect2.tl().y + rect2.br().y) / 2 < rect1.br().y) { point+=1; }
-	//cout << point << "/2  ";
-	//
-	//if (100 < rect1.tl().x - rect2.tl().x && rect1.tl().x - rect2.tl().x < 400) { point+=2; }//间距检测
-	//cout << point << "/4  ";
-	//
-	//if (20 < rect1.br().y - rect1.tl().y && rect1.br().y - rect1.tl().y < 100) { point+=1; }//数值检测
-	//cout << point << "/5  ";
-	//
-	//if (20 < rect2.br().y - rect2.tl().y && rect2.br().y - rect2.tl().y < 100) { point+=1; }
-	//cout << point << "/6  ";
-	//if (2 < rect1.br().x - rect1.tl().x && rect1.br().x - rect1.tl().x < 30) { point+=1; }
-	//cout << point << "/7  ";
-	//if (2 < rect2.br().x - rect2.tl().x && rect2.br().x - rect2.tl().x < 30) { point+=1; }
-	//cout << point << "/8  ";
-	//cout << rect1.br().y - rect1.tl().y << "   ";
+    //减分
+	//int min = 1, max = 200;
+	//if (rect2.size.height > rect2.size.width)//竖长方体检测
+	//{
+	//	if (rect2.size.height / rect2.size.width < min || rect2.size.height / rect2.size.width > max) { point = 0; }
+	//}
+	//else if (rect2.size.height < rect2.size.width)
+	//{
+	//	if (rect2.size.width / rect2.size.height < min || rect2.size.width / rect2.size.height > max) { point = 0; }
 
-	//减分
-	if ((rect2.br().y - rect2.tl().y) < (rect2.br().x - rect2.tl().x)) { point = 0; }//竖长方体检测
-	if ((rect1.br().y - rect1.tl().y) < (rect1.br().x - rect1.tl().x)) { point = 0; }
+	//}
+	//else {point = 0;}
+	//if (rect1.size.height > rect1.size.width)
+	//{
+	//	if (rect1.size.height / rect1.size.width < min || rect1.size.height / rect1.size.width > max) { point = 0; }
+	//}
+	//else if (rect1.size.height < rect1.size.width)
+	//{
+	//	if (rect1.size.width / rect1.size.height < min || rect1.size.width / rect1.size.height > max) { point = 0; }
+
+	//}
+	//else { point = 0; }
 	
-	if (rect2.contains((rect1.br() + rect1.tl()) / 2)) { point = 0; } //重合检测
-	if (rect1.contains((rect2.br() + rect2.tl()) / 2)) { point = 0; }
-	if (rect1.contains( rect2.br() )) { point = 0; }
-	if (rect1.contains( rect2.tl() )) { point = 0; }
-	if (rect2.contains( rect1.br() )) { point = 0; }
-	if (rect2.contains( rect1.tl() )) { point = 0; }
+	if (rect2.center == rect1.center) { point = 0; } //自己比自己检测（无效）
 
+	Rect straight_rect1, straight_rect2;
+	straight_rect1 = rect1.boundingRect();
+	straight_rect1 = rect1.boundingRect();
+	if (straight_rect2.contains((straight_rect1.br() + straight_rect1.tl()) / 2)) { point = 0; } //重合检测
+	if (straight_rect1.contains((straight_rect2.br() + straight_rect2.tl()) / 2)) { point = 0; }
+	if (straight_rect1.contains(straight_rect2.br() )) { point = 0; }
+	if (straight_rect1.contains(straight_rect2.tl() )) { point = 0; }
+	if (straight_rect2.contains(straight_rect1.br() )) { point = 0; }
+	if (straight_rect2.contains(straight_rect1.tl() )) { point = 0; }
 	
 	//cout << rect1 << rect2 << point << endl;
 	if (point == 8)
 	{
-		//rectangle(img, rect1.tl(), rect1.br(), Scalar(255, 255, 0), 5);
-		//rectangle(img, rect2.tl(), rect2.br(), Scalar(255, 255, 0), 5);
-		return { (rect1.br() + rect2.tl()) / 2,rect1,rect2 };
+		return { (rect1.center + rect2.center) / 2,rect1,rect2};
 	}
 	else { return { Point(0, 0),rect1,rect2 }; }
 }
@@ -157,8 +156,6 @@ Mat getmask(Mat img , int borr)									//颜色检测
 	
 }
 
-
-
 Mat preprocess(Mat img)
 {
 	Mat img_blur, img_canny, img_dilate;
@@ -169,31 +166,27 @@ Mat preprocess(Mat img)
 	return img_dilate;
 }
 
-vector<Rect> getallRect(Mat img_dil ,int *pa,Mat img)								//这里的img_dil要预处理,img不用
+vector<RotatedRect> getallRect(Mat img_dil ,int *pa,Mat img)								//这里的img_dil要预处理,img不用
 {
 	vector<vector<Point>> contours;													//嵌套容器,vector能存多个point，vector存vector能做到存多个这样的组
 	vector<Vec4i> hierarchy;
 	findContours(img_dil, contours, hierarchy, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);//找边缘
-	//drawContours(img,contours,-1,Scalar(255,0,255),2);
-
+	
 	int a = 0 ;
-	vector<Rect> boundRect(contours.size());
-	vector<vector<Point>> conpoly(contours.size());
+	vector<RotatedRect> boundRect(contours.size());
+	//vector<vector<Point>> conpoly(contours.size());
 	for (int i = 0; i < contours.size(); i++)
 	{
 		int area = contourArea(contours[i]);							//检测封闭图形面积
 		if (area > 150 && area < 2500)									//改分辨率这里要×4
 		{
-			float peri = arcLength(contours[i], true);					//设置一个检测精度
-			approxPolyDP(contours[i], conpoly[i], 0.2 * peri, true);
-			boundRect[a] = boundingRect(conpoly[i]);
-			//drawContours(img, conpoly, -1, Scalar(100, 100, 255), 1);
-			//rectangle(img, boundRect[i].tl(), boundRect[i].br(), Scalar(0, 255, 0), 1);
+			//float peri = arcLength(contours[i], true);					//设置一个检测精度
+			//approxPolyDP(contours[i], conpoly[i], 0.2 * peri, true);	//寻找闭合曲线
+			boundRect[a] = minAreaRect(contours[i]);						//寻找最小矩形
 			a++;
 		}
 	}
 	*pa = a;													//将vector长度传递出去,最后多加了一次所以后面只能<不能<=否则会下标越界
-
 	return boundRect;
 }
 
@@ -201,9 +194,6 @@ vector<Rect> getallRect(Mat img_dil ,int *pa,Mat img)								//这里的img_dil要预
 
 void main()
 {
-	//Kalman kf(1.0, 0.1, 0.1);
-	//Mat z = (cv::Mat_<double>(2, 1) << 0,0);
-	
 	//=========================此处改颜色！！==========================================================
 	int red_or_blue = 2;					//1为红，2为蓝                                          ===
 	//=================================================================================================
@@ -217,28 +207,31 @@ void main()
 	float timeadd = 0;
 	mainpoint lastpoint;
 
+	//初始化预测器
 	predict pred;
 	pred.chushihua(frame_count);
 	
+	//从这里开始处理一帧
 	while (true)
 	{
-		
+		//米奇妙妙变量
 		float mt;
 		int t1, t2;
 		int e1 = getTickCount();
-		
 		int a = 0, * pa = &a;
-		vector<Rect> boundRect;
+		vector<RotatedRect> boundRect;
 		mainpoint mpoint;
-		cap.read(img);											//视频读取成图片
-		resize(img, img, Size(), 0.5, 0.5);						//这里缩放了0.5，如果要回去了话，前面的compare要*2 area*4
-		//resize(img,img,Size(960, 720),0,0,INTER_LINEAR);
-		mask = getmask(img,red_or_blue);
-		img_pre = preprocess(mask);
-		boundRect = getallRect(img_pre, pa, img);
 		
 		
-	
+		//处理部分
+		cap.read(img);//读取									//视频读取成图片
+		resize(img, img, Size(), 0.5, 0.5);//缩放				//这里缩放了0.5，如果要回去了话，前面的compare要*2 area*4
+		mask = getmask(img,red_or_blue);//蒙版
+		img_pre = preprocess(mask);//预处理
+		boundRect = getallRect(img_pre, pa, img);//获取所有矩形框
+		
+		
+		//比对部分
 		vector<mainpoint> allpoint( 1000 );
 		Point nextpoint;
 		int i1 = 0, i2 = 0, mun = 0;
@@ -261,7 +254,6 @@ void main()
 		
 		
 		//用上一帧的正方体来检测
-		
 		int themun = 0;
 		if (fps <= 2 || mun == 1)
 		{
@@ -275,7 +267,7 @@ void main()
 			vector<float> dis(mun + 1);
 			for (i1 = 0; i1 < mun; i1++)
 			{
-				dis[i1] = getDistance( lastpoint.rect1.tl() , lastpoint.rect2.tl() ) - getDistance( allpoint[i1].rect1.tl(), allpoint[i1].rect2.tl() );
+				dis[i1] = getDistance( lastpoint.rect1.center , lastpoint.rect2.center ) - getDistance( allpoint[i1].rect1.center, allpoint[i1].rect2.center );
 				if (dis[i1] < 0) { dis[i1] = -dis[i1]; }
 			}
 			
@@ -292,23 +284,33 @@ void main()
 			lastpoint = allpoint[themun];
 			pred.getpoint(lastpoint.mp, fps);
 		}
-		rectangle(img,allpoint[themun].rect1.tl(), allpoint[themun].rect1.br(), Scalar(255, 255, 0), 5);
-		rectangle(img, allpoint[themun].rect2.tl(), allpoint[themun].rect2.br(), Scalar(255, 255, 0), 5);
-		circle(img, allpoint[themun].mp, 10, Scalar(0, 0, 255), -1);
 		
 		
+		//绘制部分
+		// 计算旋转矩形的四个顶点
+		Point2f vertices[4];
+		allpoint[themun].rect1.points(vertices);//第一个
+		// 在图像上绘制旋转矩形
+		for (int r1 = 0; r1 < 4; r1++) {
+			line(img, vertices[r1 ], vertices[(r1 + 1) % 4], Scalar(255, 0, 255), 2);
+		}
+		allpoint[themun].rect2.points(vertices);//第二个
+		// 在图像上绘制旋转矩形
+		for (int r2 = 0; r2 < 4; r2++) {
+			line(img, vertices[r2], vertices[(r2 + 1) % 4], Scalar(255, 0, 255), 2);
+		}
+		circle(img, allpoint[themun].mp, 8, Scalar(0, 0, 255), -1);
 		
 		
 		//预测部分
 		if (fps > 2)
 		{
 			circle(img, pred.predictpoint(img), 5, Scalar(0, 0, 0), -1);
-			//cout << pred.predictpoint() << "....." << lastpoint.mp << endl;
 		}
-		
 		imshow("img", img);
 		fps++;
 		waitKey(1);
+		
 		
 		//计时部分
 		int e2 = getTickCount();
@@ -318,4 +320,7 @@ void main()
 		cout << "  平均用时："<< timeadd / fps <<" fps:" << fps << endl;
 	}
 }
+
+
+
 
