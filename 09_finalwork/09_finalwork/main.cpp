@@ -1,6 +1,6 @@
 //by 1168
 //蓝框为跟踪，红点为装甲板中心，黑色为预测点，绿色的线是预测指示线，线越长代表速度越快
-//main函数里可以快速改颜色,默认是蓝色，因为蓝色效果比较好，红色有几帧实在没办法（哭了）
+//main函数里可以快速改颜色,默认是蓝色.
 //处理一帧平均约为32ms(一开始是36ms，越运行平均耗时会越低，直到结束差不多是32ms)，平均值可以再终端里看
 //最耗时的语句是canny，需要6到8ms，canny中的非极大值抑制需要对每个像素的梯度方向进行判断，并在梯度方向上进行比较，保留局部最大值。这个过程涉及复杂的条件判断和像素访问。
 //其次耗时的语句是读取图片，也就是.read（），差不多要5ms
@@ -221,18 +221,18 @@ void main()
 		int a = 0, * pa = &a;
 		vector<RotatedRect> boundRect;
 		mainpoint mpoint;
-		
-		
+
+
 		//处理部分
 		cap.read(img);//读取									//视频读取成图片
 		resize(img, img, Size(), 0.5, 0.5);//缩放				//这里缩放了0.5，如果要回去了话，前面的compare要*2 area*4
-		mask = getmask(img,red_or_blue);//蒙版
+		mask = getmask(img, red_or_blue);//蒙版
 		img_pre = preprocess(mask);//预处理
 		boundRect = getallRect(img_pre, pa, img);//获取所有矩形框
-		
-		
+
+
 		//比对部分
-		vector<mainpoint> allpoint( 1000 );
+		vector<mainpoint> allpoint(1000);
 		Point nextpoint;
 		int i1 = 0, i2 = 0, mun = 0;
 		for (i1 = 0; i1 < a; i1++)
@@ -250,55 +250,90 @@ void main()
 
 			}
 		}
-		
-		
-		
+
+
+
 		//用上一帧的正方体来检测
 		int themun = 0;
 		if (fps <= 2 || mun == 1)
 		{
 			lastpoint = mpoint;
-			pred.getpoint(lastpoint.mp,fps);
+			pred.getpoint(lastpoint.mp, fps);
 		}
-		
+
 		if (fps != 0 && mun != 1)
 		{
-			
+
 			vector<float> dis(mun + 1);
 			for (i1 = 0; i1 < mun; i1++)
 			{
-				dis[i1] = getDistance( lastpoint.rect1.center , lastpoint.rect2.center ) - getDistance( allpoint[i1].rect1.center, allpoint[i1].rect2.center );
+				dis[i1] = getDistance(lastpoint.rect1.center, lastpoint.rect2.center) - getDistance(allpoint[i1].rect1.center, allpoint[i1].rect2.center);
 				if (dis[i1] < 0) { dis[i1] = -dis[i1]; }
 			}
-			
+
 			int min_value = dis[0]; //找距离的差最小的那个
-			
-			for (i1 = 1; i1 < mun; i1++) 
+
+			for (i1 = 1; i1 < mun; i1++)
 			{
-				if (dis[i1] < min_value) 
+				if (dis[i1] < min_value)
 				{
-					min_value = dis[i1]; 
+					min_value = dis[i1];
 					themun = i1;
 				}
 			}
 			lastpoint = allpoint[themun];
 			pred.getpoint(lastpoint.mp, fps);
 		}
-		
-		
+
+
 		//绘制部分
 		// 计算旋转矩形的四个顶点
-		Point2f vertices[4];
-		allpoint[themun].rect1.points(vertices);//第一个
+		Point2f vertices1[4], vertices2[4];
+		allpoint[themun].rect1.points(vertices1);//第一个
 		// 在图像上绘制旋转矩形
 		for (int r1 = 0; r1 < 4; r1++) {
-			line(img, vertices[r1 ], vertices[(r1 + 1) % 4], Scalar(255, 0, 255), 2);
+			line(img, vertices1[r1], vertices1[(r1 + 1) % 4], Scalar(255, 0, 0), 2);
 		}
-		allpoint[themun].rect2.points(vertices);//第二个
-		// 在图像上绘制旋转矩形
+		allpoint[themun].rect2.points(vertices2);//第二个
 		for (int r2 = 0; r2 < 4; r2++) {
-			line(img, vertices[r2], vertices[(r2 + 1) % 4], Scalar(255, 0, 255), 2);
+			line(img, vertices2[r2], vertices2[(r2 + 1) % 4], Scalar(255, 0, 0), 2);
 		}
+		//绘制连线（暂时不做，要做也很容易）
+		//int maxmun1 = 0,maxmun2 = 0,minmun1 = 0,minmun2 = 0;
+		//for (int r1 = 1; r1 < 4; r1++)//找出最左边和左右边 
+		//{
+		//	int max = vertices1[0].x;
+		//	int min = vertices1[0].x;
+		//	if (vertices1[maxmun1].x < vertices1[r1].x) 
+		//	{
+		//		maxmun1 = r1;
+		//		max = vertices1[maxmun1].x;
+		//	}
+		//	if (vertices1[minmun1].x > vertices1[r1].x)
+		//	{
+		//		minmun1 = r1;
+		//		min = vertices1[minmun1].x;
+		//	}
+		//}
+		//for (int r2 = 1; r2 < 4; r2++)//找出最左边和左右边 
+		//{
+		//	int max = vertices2[0].x;
+		//	int min = vertices2[0].x;
+		//	if (vertices1[maxmun2].x < vertices1[r2].x)
+		//	{
+		//		maxmun1 = r2;
+		//		max = vertices2[maxmun2].x;
+		//	}
+		//	if (vertices2[minmun2].x > vertices1[r2].x)
+		//	{
+		//		minmun1 = r2;
+		//		min = vertices2[minmun2].x;
+		//	}
+		//}
+		//line(img, vertices1[maxmun1], vertices2[maxmun2], Scalar(255, 0, 0), 2);
+		//line(img, vertices1[minmun1], vertices2[minmun2], Scalar(255, 0, 0), 2);
+		
+		//画点
 		circle(img, allpoint[themun].mp, 8, Scalar(0, 0, 255), -1);
 		
 		
