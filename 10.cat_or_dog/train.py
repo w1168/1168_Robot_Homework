@@ -82,7 +82,7 @@ def train_model(model, data_loader, loss_f, optimizer, num_epochs, device, save_
                     running_loss += loss.item()
                     running_corrects += torch.sum(pred == y.data)
                     
-                    if batch % 250 == 0 and phase == "train":
+                    if batch % 5000 == 0 and phase == "train":
                         print("Batch {}, Train Loss: {:.4f}, Train ACC: {:.4f}".format(batch, running_loss / batch, 100 * running_corrects / (20 * batch)))
                 
                 epoch_loss = running_loss * 20 / len(image_datasets[phase])
@@ -125,7 +125,7 @@ if __name__ == "__main__":
     # 加载预训练的ResNet-50模型并修改最后一层(false)
     model = models.resnet50(pretrained=True)
     for param in model.parameters():
-        param.requires_grad = True
+        param.requires_grad = False
     model.fc = torch.nn.Linear(2048, 2)
 
     # 检查是否有可用的GPU并将其用于模型
@@ -138,7 +138,7 @@ if __name__ == "__main__":
     optimizer = torch.optim.AdamW(model.fc.parameters(), lr=0.00001)
 
     # 定义训练轮数和模型保存路径
-    num_epochs = 2
+    num_epochs = 4
     save_path = "./models"
 
     # 创建保存模型的目录

@@ -79,10 +79,9 @@ else:
         if param.requires_grad == True:
             print("\t",name)
 
-#优化器设置（没看东）
-optimizer_ft = torch.optim.Adam(params_to_update, lr = 0.001)
-scheduler = torch.optim.lr_scheduler.StepLR(optimizer_ft, step_size=7, gamma=0.1)
-criterion = nn.NLLLoss()
+#优化器设置
+loss_f = torch.nn.CrossEntropyLoss()
+optimizer = torch.optim.AdamW(model.fc.parameters(), lr=0.00001)
 
 def train_model(model, dataloder, loss_f, optimizer,num_epochs = 25,is_inception = False, filename = filename):
     since = time.time()
@@ -174,4 +173,4 @@ def train_model(model, dataloder, loss_f, optimizer,num_epochs = 25,is_inception
     return model,val_acc_history,train_acc_history,valid_losses,train_losses,LRs
 
 
-train_model(model_ft, image_dataloder,criterion,optimizer_ft,num_epochs = 25,is_inception=False,filename = filename)
+train_model(model_ft, image_dataloder,,criterion,num_epochs = 25,is_inception=False,filename = filename)
